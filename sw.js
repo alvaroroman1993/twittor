@@ -74,6 +74,8 @@ self.addEventListener('activate', e => {
 
 self.addEventListener( 'fetch', e => {
 
+    if (!event.request.url.includes('http')) return;
+
 
     const respuesta = caches.match( e.request ).then( res => {
 
